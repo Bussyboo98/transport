@@ -1,0 +1,124 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title%}
+Home
+{% endblock %}
+
+{% block content %}
+			<!-- start banner Area -->
+			<section class="banner-area relative about-banner" id="home">	
+				<div class="overlay overlay-bg"></div>
+				<div class="container">				
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								Hire a Bus				
+							</h1>	
+							<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="service.html"> Services</a></p>
+						</div>	
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->	
+			<section class="home-calltoaction-area1 relative" style="background-color: black;">
+				<div class="container">
+					<div class="overlay overlay-bg"></div>
+					<div class="row align-items-center section-gap">
+						
+						<div class="col-lg-4 btn-left">
+							<img src="../../static/frontend/img/Transture_mockup_bus-removebg-preview.png"  class="img-fluid" style="max-height: 200px;
+							min-height: 200px;" alt="">
+						</div>
+						<div class="col-lg-8">
+							<h1 style="font-size: 50px; color: rgb(255, 238, 0);">Hire a bus for personal errands, <br> friends and family hangout and events.</h1>
+							
+						</div>
+					</div>
+				</div>	
+			</section>
+			
+			<br><br>
+			<h2 class="text-center text-capitalize" style="font-size: 40px;">Request a private bus </h2>
+			<h2 class="text-center text-capitalize" style="font-size: 40px;">Fill in your details below and a member of <br> our team will reach out to you within the next 3hrs</h2>
+				 <br><br>
+				 <p class="text-center">Fields marked with an <span style="color: red;">*</span> are required</p>
+			<form class="form transparent-form col-lg-6 mt-75 mx-auto" method="POST">
+				{% if messages %}
+				{% for mes in messages%}
+					<div style="font-size: 18px; font-weight: 500;" class="alert {{ mes.tags }} text-center">{{ mes }}</div>
+				{% endfor %}
+				{% endif %}
+				
+				{% csrf_token %}
+
+				  <div class="form-group">
+					 <label style="font-weight: 600; font-size: 20px;">First Name <span style="color: red;">*</span></label>
+					 {{ hire_form.pst_firstname }}
+				  </div>
+				  <div class="form-group">
+					 <label style="font-weight: 600; font-size: 20px;">Last Name  <span style="color: red;">*</span></label>
+					 {{ form.pst_lastname }}
+				  </div>
+				  <div class="form-group">
+					 <label style="font-weight: 600; font-size: 20px;">Fom Where  <span style="color: red;">*</span>: </label>
+					 <div class="input-group">
+						<span class="input-group-addon">
+						  
+						</span>
+						{{ form.email }}
+					 </div>
+				  </div>
+				  <div class="form-group">
+					 <label style="font-weight: 600; font-size: 20px;">Where are you going  <span style="color: red;">*</span>: </label>
+					 <div class="input-group">
+						<span class="input-group-addon">
+						  
+						</span>
+						{{ form.phone }}
+					 </div>
+				  </div>
+				  <div class="form-group">
+					<label style="font-weight: 600; font-size: 20px;">Email  <span style="color: red;">*</span>: </label>
+					<div class="input-group">
+					   <span class="input-group-addon">
+						 
+					   </span>
+					   {{ form.state }}
+					</div>
+				 </div>
+				 <div class="form-group">
+					<label style="font-weight: 600; font-size: 20px;">Phone  <span style="color: red;">*</span>: </label>
+					<div class="input-group">
+					   <span class="input-group-addon">
+						 
+					   </span>
+					   {{ form.city }}
+					</div>
+				 </div>
+				 <div class="form-group">
+					<label style="font-weight: 600; font-size: 20px;">No of Passenger  <span style="color: red;">*</span>: </label>
+					<div class="input-group">
+					   <span class="input-group-addon">
+						 
+					   </span>
+					   {{ form.home }}
+					</div>
+				 </div>
+				 <div class="form-group">
+					<label style="font-weight: 600; font-size: 20px;">Date/Time  <span style="color: red;">*</span>: </label>
+					<div class="input-group">
+					   <span class="input-group-addon">
+						 
+					   </span>
+					   {{ form.driver }}
+					</div>
+				 </div>
+				
+				  <button type="submit" class="text-uppercase btn btn-outline-warning btn-lg mx-auto">Submit</button>
+			   </form>
+			   <br><br>
+			<!-- End home-about Area -->												
+				    																			
+	{% endblock %}

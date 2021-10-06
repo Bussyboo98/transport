@@ -1,0 +1,180 @@
+{% load static %}
+	<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="img/fav.png">
+		<!-- Author Meta -->
+		<meta name="author" content="colorlib">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>
+			{% block title%}
+
+			{% endblock%}
+		</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="{% static 'frontend/css/linearicons.css' %}">
+			<link rel="stylesheet" href="{% static 'frontend/css/font-awesome.min.css' %}">
+			<link rel="stylesheet" href="{% static 'frontend/css/bootstrap.css' %}">
+			<link rel="stylesheet" href="{% static 'frontend/css/magnific-popup.css' %}">
+			<link rel="stylesheet" href="{% static 'frontend/css/nice-select.css' %}">							
+			<link rel="stylesheet" href="{% static 'frontend/css/animate.min.css' %}">
+			<link rel="stylesheet" href="{% static 'frontend/css/jquery-ui.css' %}">			
+			<link rel="stylesheet" href="{% static 'frontend/css/main.css' %}">
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- Moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js" integrity="sha256-VBLiveTKyUZMEzJd6z2mhfxIqz3ZATCuVMawPZGzIfA=" crossorigin="anonymous"></script>
+
+    <!-- Tempus Dominus Bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha256-XPTBwC3SBoWHSmKasAk01c08M6sIA5gF5+sRxqak2Qs=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js" integrity="sha256-z0oKYg6xiLq3yJGsp/LsY9XykbweQlHl42jHv2XTBz4=" crossorigin="anonymous"></script>
+		</head>
+		<body>	
+			  <header id="header">
+		  		<div class="header-top">
+				</div>
+			    <div class="container main-menu">
+			    	<div class="row align-items-center justify-content-between d-flex">
+			    		<a href="{%url 'index' %}"><img src="../../static/frontend/img/cropped-Logo_all-whiteYellow--145x24.png" alt="" title="" /></a>		
+						<nav id="nav-menu-container">
+							<ul class="nav-menu">
+							  <li class="menu-active"><a href="{%url 'index' %}">Home</a></li>
+							  <li><a href="{%url 'frontend:about' %}">About</a></li>
+							  <li><a href="{%url 'frontend:service' %}">Drive With Us</a></li>
+							  <li><a href="{%url 'frontend:support' %}">Support</a></li>
+							  <li><a href="{%url 'frontend:hire' %}">Hire a bus</a></li>
+							  <li class="menu-has-children"><a href="">Blog</a>
+							    <ul>
+							      <li><a href="blog-home.html">Blog Home</a></li>
+							      <li><a href="blog-single.html">Blog Single</a></li>
+							      <li class="menu-has-children"><a href="">Level 2</a>
+							        <ul>
+							          <li><a href="#">Item One</a></li>
+							          <li><a href="#">Item Two</a></li>
+							        </ul>
+							      </li>					              
+							    </ul>
+							  </li>
+							 						  			          	          
+							  <li><a href="{%url 'frontend:contact' %}">Contact</a></li>
+							</ul>
+						</nav><!-- #nav-menu-container -->		
+			    	</div>
+			    </div>
+			  </header><!-- #header -->
+
+			  {% block content%}
+
+			  {% endblock%}
+			
+			<!-- start footer Area -->		
+			<footer class="footer-area section-gap">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-2 col-md-6 col-sm-6">
+							<div class="single-footer-widget">
+								<h6>Quick links</h6>
+								<ul>
+									<li><a href="#">Jobs</a></li>
+									<li><a href="#">Brand Assets</a></li>
+									<li><a href="#">Investor Relations</a></li>
+									<li><a href="#">Terms of Service</a></li>
+								</ul>								
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-6 col-sm-6">
+							<div class="single-footer-widget">
+								<h6>Features</h6>
+								<ul>
+									<li><a href="#">Jobs</a></li>
+									<li><a href="#">Brand Assets</a></li>
+									<li><a href="#">Investor Relations</a></li>
+									<li><a href="#">Terms of Service</a></li>
+								</ul>								
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-6 col-sm-6">
+							<div class="single-footer-widget">
+								<h6>Resources</h6>
+								<ul>
+									<li><a href="#">Guides</a></li>
+									<li><a href="#">Research</a></li>
+									<li><a href="#">Experts</a></li>
+									<li><a href="#">Agencies</a></li>
+								</ul>								
+							</div>
+						</div>												
+						<div class="col-lg-2 col-md-6 col-sm-6 social-widget">
+							<div class="single-footer-widget">
+								<h6>Follow Us</h6>
+								<p>Let us be social</p>
+								<div class="footer-social d-flex align-items-center">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-dribbble"></i></a>
+									<a href="#"><i class="fa fa-behance"></i></a>
+								</div>
+							</div>
+						</div>							
+						<div class="col-lg-4  col-md-6 col-sm-6">
+							<div class="single-footer-widget">
+								<h6>Newsletter</h6>
+								<p>Stay update with our latest</p>
+								<div class="" id="mc_embed_signup">
+									<form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
+										<input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required="" type="email">
+			                            	<button class="click-btn btn btn-default"><span class="lnr lnr-arrow-right"></span></button>
+			                            	<div style="position: absolute; left: -5000px;">
+												<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+											</div>
+
+										<div class="info"></div>
+									</form>
+								</div>
+							</div>
+						</div>	
+						<p class="mt-80 mx-auto footer-text col-lg-12">
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						</p>											
+					</div>
+				</div>
+				<img class="footer-bottom" src="img/footer-bottom.png" alt="">
+			</footer>	
+			<!-- End footer Area -->	
+
+			<script src="{% static 'frontend/js/vendor/jquery-2.2.4.min.js' %}"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<script src="{% static 'frontend/js/vendor/bootstrap.min.js' %}"></script>			
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+  			<script src="{% static 'frontend/js/easing.min.js' %}"></script>			
+			<script src="{% static 'frontend/js/hoverIntent.js' %}"></script>
+			<script src="{% static 'frontend/js/superfish.min.js' %}"></script>	
+			<script src="{% static 'frontend/js/jquery.ajaxchimp.min.js' %}"></script>
+			<script src="{% static 'frontend/js/jquery.magnific-popup.min.js' %}"></script>	
+ 			<script src="{% static 'frontend/js/jquery-ui.js' %}"></script>								
+			<script src="{% static 'frontend/js/jquery.nice-select.min.js' %}"></script>							
+			<script src="{% static 'frontend/js/mail-script.js' %}"></script>	
+			<script src="{% static 'frontend/js/main.js' %}"></script>	
+		</body>
+	</html>

@@ -1,0 +1,164 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title%}
+Home
+{% endblock %}
+
+{% block content %}
+			<!-- start banner Area -->
+			<section class="banner-area relative about-banner" id="home">	
+				<div class="overlay overlay-bg"></div>
+				<div class="container">				
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								Support				
+							</h1>	
+							<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="service.html"> Support</a></p>
+						</div>	
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->	
+			<section class="home-calltoaction-area relative">
+				<div class="container">
+					<div class="overlay overlay-bg"></div>
+					<div class="row align-items-center section-gap">
+						<div class="col-lg-8">
+							<h1 style="font-size: 50px; color: rgb(0, 0, 0); text-transform: capitalize;">Short trips that promise <br>comfort & convivence</h1>
+							
+						</div>
+						<div class="col-lg-4 btn-left">
+							<img src="../../static/frontend/img/mock 2 (300 x450 px).png" style="max-height: 300px;
+							min-height: 300px;" alt="">
+						</div>
+					</div>
+				</div>	
+			</section>
+			
+			<!-- Start home-about Area -->
+			<section class="home-about-area section-gap ">
+				<div class="container mx-auto">
+					<h2>I lost an item</h2>
+					<br>
+					<p style="font-size: 17px;">
+						We are sorry to hear that you lost an item while riding with us, you can be 
+						rest assured that our team will give every necessary support to help you locate 
+						the lost item.
+					</p>
+				</div>	
+
+			
+			</section>
+			<h2 class="text-center" style="font-size: 30px;">
+				Please provide trip details
+			</h2>
+				 <br><br>
+				 <p class="text-center">Fields marked with an <span style="color: red;">*</span> are required</p>
+			<form class="form transparent-form col-lg-6 mt-75 mx-auto" method="POST">
+				{% if messages %}
+				{% for m in messages%}
+					<div style="font-size: 18px; font-weight: 500;" class="alert {{ m.tags }} text-center">{{ m }}</div>
+				{% endfor %}
+				{% endif %}
+				
+				{% csrf_token %}
+
+				  <div class="form-group">
+					 <label style="font-weight: 600; font-size: 20px;">First Name <span style="color: red;">*</span></label>
+					 {{ form.pst_firstname }}
+				  </div>
+				  <div class="form-group">
+					 <label style="font-weight: 600; font-size: 20px;">Last Name  <span style="color: red;">*</span></label>
+					 {{ form.pst_lastname }}
+				  </div>
+				  <label style="font-weight: 600; font-size: 20px;">Trip Date <span style="color: red;">*</span>: </label>
+				  <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+					{{ form.date }}
+					<div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+					  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+					</div>
+				  </div>
+				  <div class="form-group">
+					 <label style="font-weight: 600; font-size: 20px;">Phone  <span style="color: red;">*</span>: </label>
+					 <div class="input-group">
+						<span class="input-group-addon">
+						  
+						</span>
+						{{ form.phone }}
+					 </div>
+				  </div>
+				 
+				 <div class="form-group">
+					<label style="font-weight: 600; font-size: 20px;">Pickoff Location  <span style="color: red;">*</span>: </label>
+					<div class="input-group">
+					   <span class="input-group-addon">
+						 
+					   </span>
+					   {{ form.pickoff }}
+					</div>
+				 </div>
+				 <div class="form-group">
+					<label style="font-weight: 600; font-size: 20px;">Dropoff Location  <span style="color: red;">*</span>: </label>
+					<div class="input-group">
+					   <span class="input-group-addon">
+						 
+					   </span>
+					   {{ form.dropoff }}
+					</div>
+				 </div>
+				 <div class="form-group">
+					<label style="font-weight: 600; font-size: 20px;">Dropoff Time <span style="color: red;">*</span>: </label>
+					<div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+						{{ form.drop_time }}
+						<div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+						  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+						</div>
+					  </div>
+				 </div>
+				 <div class="form-group">
+					<label style="font-weight: 600; font-size: 20px;">Bus Serial No<span style="color: red;">*</span>: </label>
+					<div class="input-group">
+					   <span class="input-group-addon">
+						 
+					   </span>
+					   {{ form.bus_no }}
+					</div>
+				 </div>
+				  
+				  <button type="submit" class="text-uppercase btn btn-outline-warning btn-lg mx-auto">Submit</button>
+				
+			   </form>
+			   <br><br>
+			<!-- End home-about Area -->
+			<section class=""  style="background-color: rgb(250, 250, 250);">
+				<div class="container">
+					<div class="row">
+						{% if support %}
+					{% for s in support %}
+					<p>
+						{{ s.content | safe }}
+					</p>
+					{% endfor %}
+					{% endif %}
+					</div>
+					
+				</div>	
+			</section>
+
+
+
+			<script>
+				$(function () {
+				  $("#datetimepicker1").datetimepicker({
+					format: 'DD/MM/YYYY HH:mm',
+				  });
+				  $("#datetimepicker2").datetimepicker({
+					format: 'DD/MM/YYYY HH:mm',
+				  });
+				});
+			  </script>
+				    																			
+	{% endblock %}

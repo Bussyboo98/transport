@@ -1,0 +1,153 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title%}
+Home
+{% endblock %}
+
+{% block content %}
+					
+			<!-- start banner Area -->
+			<section class="banner-area relative about-banner" id="home">	
+				<div class="overlay overlay-bg"></div>
+				<div class="container">				
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								About Us				
+							</h1>	
+							<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="about.html"> About Us</a></p>
+						</div>	
+					</div>
+					
+				</div>
+			</section>
+			<!-- End banner Area -->	
+
+			<!-- Start home-calltoaction Area -->
+			<section class="home-calltoaction-area relative">
+				<div class="container">
+					<div class="overlay overlay-bg"></div>
+					<div class="row align-items-center section-gap">
+						<div class="col-lg-8">
+							<h1 style="font-size: 50px;">Join Us To Keep <br> Changing The Narrative</h1>
+							
+						</div>
+						<div class="col-lg-4 btn-left">
+							<img src="../../static/frontend/img/Transture_mockup_bus-removebg-preview.png" style="max-height: 200px;
+							min-height: 200px;" alt="">
+						</div>
+					</div>
+				</div>	
+			</section>
+			<!-- End home-calltoaction Area -->	
+
+			<!-- Start home-about Area -->
+			<section class="home-about-area section-gap">
+				<div class="container">
+					<div class="row align-items-center">
+						{% if abt %}
+						{% for b in abt %}
+						<div class="col-lg-6 about-left ">
+							<img class="img-fluid" src="{{ b.abt_img }}" alt="">
+						</div>
+						<div class="col-lg-6 about-right">
+							<h1>ABOUT US
+							</h1>
+							
+							<p>
+								{{ b.content | safe }}						
+							</p>
+						
+						</div>
+						{% endfor %}
+						{% endif %}
+					</div>
+				</div>	
+			</section>
+			<!-- End home-about Area -->
+
+			
+
+			<!-- Start reviews Area -->
+			<section class="reviews-area section-gap">
+				<div class="container">
+					
+					<div class="row">
+						
+						{% for m in abt %}
+						<div class="col-lg-6 col-md-6">
+							<div class="single-review">
+								<h4>{{m.vision}}</h4>
+								<p>
+								{{m.content1}}
+								</p>
+								
+							</div>
+						</div>	
+						<div class="col-lg-6 col-md-6">
+							<div class="single-review">
+								<h4>{{m.mission}}</h4>
+								<p>
+								{{m.content2}}
+								</p>
+								
+							</div>
+						</div>	
+						{% endfor %}																															
+					</div>
+				
+					
+				</div>	
+			</section>
+			<!-- End reviews Area -->			
+				<!-- Start home-about Area -->
+				<section class="home-about-area section-gap">
+					<div class="container">
+						<div class="row align-items-center">
+							
+							<div class="col-lg-4 about-left ">
+								<h1>What Is Driving Us</h1>
+							</div>
+							<div class="col-lg-6 about-right">
+								<img src="../../static/frontend/img/Transture_mockup_bus-removebg-preview.png" alt="">
+							
+							</div>
+							
+						</div>
+						{% for d in abt %}
+						<p>{{ d.what_is_drivig_content | safe }}</p>
+						{% endfor %}
+					</div>	
+				</section>
+				<!-- End home-about Area -->
+	
+				<!-- Start image-gallery Area -->
+				<section class="image-gallery-area section-gap mb-50 bg-white">
+					<div class="container">
+						<div class="row section-title">
+							<h1 style="font-size: 50px;">Meet our Founders</h1>
+							<br><br>
+							<p style="color: black; font-size: 15px; font-weight: 400;"> Transtura is a shared vision of three young people who believe they can change the 
+								world with their skills and passion for excellence. We are solving an important 
+								problem that affects over 20 million Lagosians everyday. If you are ready to take
+								 up the challenge of solving Lagos mobility problem, we would be glad to welcome 
+								 you on onboard!</p>
+						</div>					
+						<div class="row">
+							{% if tem %}
+							{% for a in tem %}
+							<div class="col-lg-4">
+								<img class="img-fluid" src="{{ a.team_img }}" alt="" style="border-radius: 20px; max-height: 500px; min-height: 500px;">
+								<h3 class="text-center capitalize mt-20">{{ a.name }}</h3>
+								<p class="text-center" style="font-weight: 400;">{{ a.title }}</p>
+							</div>
+							{% endfor %}
+							{% endif %}					
+						</div>
+					</div>	
+				</section>
+				<!-- End image-gallery Area -->							
+				    																			
+{% endblock %}
