@@ -64,11 +64,11 @@ def support(request):
 
 
 def hire(request):
-    form = HireForm()
+    hire_form = HireForm()
     if request.method == 'POST':
         hire_form = HireForm(request.POST)
         if hire_form.is_valid():
-            hire_form = form.save()
+            hire_form = hire_form.save()
             messages.success(request, 'User edited successfully.')
     return render(request, 'frontend/hire.html',{'hire_form':hire_form})
 
