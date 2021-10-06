@@ -5,7 +5,7 @@
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
-		<link rel="shortcut icon" href="img/fav.png">
+		<link rel="shortcut icon" href="../../static/frontend/img/Transture_mockup_bus-removebg-preview.png">
 		<!-- Author Meta -->
 		<meta name="author" content="colorlib">
 		<!-- Meta Description -->
@@ -62,20 +62,10 @@
 							  <li><a href="{%url 'frontend:service' %}">Drive With Us</a></li>
 							  <li><a href="{%url 'frontend:support' %}">Support</a></li>
 							  <li><a href="{%url 'frontend:hire' %}">Hire a bus</a></li>
-							  <li class="menu-has-children"><a href="">Blog</a>
-							    <ul>
-							      <li><a href="blog-home.html">Blog Home</a></li>
-							      <li><a href="blog-single.html">Blog Single</a></li>
-							      <li class="menu-has-children"><a href="">Level 2</a>
-							        <ul>
-							          <li><a href="#">Item One</a></li>
-							          <li><a href="#">Item Two</a></li>
-							        </ul>
-							      </li>					              
-							    </ul>
-							  </li>
+							  <li class="menu-has-children"><a href="{%url 'frontend:blog' %}">Blog</a>
+							</li>
 							 						  			          	          
-							  <li><a href="{%url 'frontend:contact' %}">Contact</a></li>
+							  <li><a href="{%url 'frontend:career' %}">Career</a></li>
 							</ul>
 						</nav><!-- #nav-menu-container -->		
 			    	</div>
@@ -90,36 +80,38 @@
 			<footer class="footer-area section-gap">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-2 col-md-6 col-sm-6">
+						<div class="col-lg-4 col-md-6 col-sm-6">
 							<div class="single-footer-widget">
-								<h6>Quick links</h6>
-								<ul>
-									<li><a href="#">Jobs</a></li>
-									<li><a href="#">Brand Assets</a></li>
-									<li><a href="#">Investor Relations</a></li>
-									<li><a href="#">Terms of Service</a></li>
+								<img src="../../static/frontend/img/cropped-Logo_all-whiteYellow--145x24.png" class="img-fluid" alt="">
+								<br>
+								<ul class="text-white">
+									<li>294 Borno Way, Yaba, Lagos.
+										support@transtura.com</li>
+										<br>
+									<li>07068330661, 08166499271</li>
+									
 								</ul>								
 							</div>
 						</div>
+						
 						<div class="col-lg-2 col-md-6 col-sm-6">
 							<div class="single-footer-widget">
-								<h6>Features</h6>
+								<h6>Who We Are</h6>
 								<ul>
-									<li><a href="#">Jobs</a></li>
-									<li><a href="#">Brand Assets</a></li>
-									<li><a href="#">Investor Relations</a></li>
-									<li><a href="#">Terms of Service</a></li>
+									<li><a href="{%url 'frontend:about' %}">About</a></li>
+									<li><a href="{%url 'frontend:service' %}">Drive With Us</a></li>
+									
 								</ul>								
 							</div>
-						</div>
+						</div>	
 						<div class="col-lg-2 col-md-6 col-sm-6">
 							<div class="single-footer-widget">
-								<h6>Resources</h6>
+								<h6>Company</h6>
 								<ul>
-									<li><a href="#">Guides</a></li>
-									<li><a href="#">Research</a></li>
-									<li><a href="#">Experts</a></li>
-									<li><a href="#">Agencies</a></li>
+									<li><a href="#">FAQs</a></li>
+									<li><a href="{%url 'frontend:support' %}">Support</a></li>
+									<li class="menu-has-children"><a href="{%url 'frontend:blog' %}">Blog</a>
+									
 								</ul>								
 							</div>
 						</div>												
@@ -135,28 +127,17 @@
 								</div>
 							</div>
 						</div>							
-						<div class="col-lg-4  col-md-6 col-sm-6">
+						<div class="col-lg-2 col-md-6 col-sm-6">
 							<div class="single-footer-widget">
-								<h6>Newsletter</h6>
-								<p>Stay update with our latest</p>
-								<div class="" id="mc_embed_signup">
-									<form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
-										<input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required="" type="email">
-			                            	<button class="click-btn btn btn-default"><span class="lnr lnr-arrow-right"></span></button>
-			                            	<div style="position: absolute; left: -5000px;">
-												<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-											</div>
-
-										<div class="info"></div>
-									</form>
-								</div>
+								<h6>Company</h6>
+								<ul>
+									<li><a href="{%url 'frontend:privacy' %}">Privacy Policy</a></li>
+									<li class="menu-has-children"><a href="{%url 'frontend:terms' %}">Terms & Conditions</a>
+									
+								</ul>								
 							</div>
 						</div>	
-						<p class="mt-80 mx-auto footer-text col-lg-12">
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						</p>											
+																	
 					</div>
 				</div>
 				<img class="footer-bottom" src="img/footer-bottom.png" alt="">

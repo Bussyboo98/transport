@@ -41,10 +41,10 @@ class SupportForm(forms.ModelForm):
             'pst_firstname': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter FirstName'}), 
             'pst_lastname':  forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter LasttName'}),
             'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter PhoneNumber'}),
-            'date': forms.DateTimeInput(attrs={'class': 'form-control datetimepicker-input','data-target': '#datetimepicker1'}),
+            'date': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'DD:MM:YY  h:m'}),
             'pickoff': forms.TextInput(attrs={'class': 'form-control'}),
             'dropoff': forms.TextInput(attrs={'class': 'form-control'}),
-            'drop_time': forms.DateTimeInput(attrs={'class': 'form-control datetimepicker-input','data-target': '#datetimepicker1'}),
+            'drop_time': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'DD:MM:YY  h:m'}),
             'bus_no': forms.TextInput(attrs={'class': 'form-control'}),
             
         }
@@ -64,11 +64,24 @@ class HireForm(forms.ModelForm):
             'to_where' :forms.TextInput(attrs={'class':'form-control'}),
             'phone':forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter PhoneNumber'}),
             'email':forms.TextInput(attrs={'class': 'form-control', 'placeholder': '@gmail.com'}),
-            'passng':forms.NumberInput(attrs={'class' :'form-control'})
+            'passng':forms.NumberInput(attrs={'class' :'form-control'}),
+            'da_ti': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'DD:MM:YY  h:m'}),
                    
             
         }
 
 
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('name', 'email', 'body','website')
+
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Name'}),
+            'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Email'}),
+            'website': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Website'}),
+            'body': forms.Textarea(attrs={'class': 'form-control', 'placeholder':'Type here'}),
+            
+        }
 
 

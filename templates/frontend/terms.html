@@ -1,0 +1,35 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title%}
+Terms & Conditions
+{% endblock %}
+
+{% block content %}
+			
+			<section class="mt-150">
+				<div class="container">
+					<h1 class="text-center">Terms & Conditions</h1>
+					<br><br><br>
+					<div class="row">
+					{% if terms %}
+					{% for p in terms %}
+					
+					
+					<p>
+						{{ p.content2 | safe }}
+					
+					</p>
+					{% endfor %}
+					{% endif %}
+					</div>
+					
+
+				</div>	
+			</section>
+		
+			
+
+		
+{% endblock %}

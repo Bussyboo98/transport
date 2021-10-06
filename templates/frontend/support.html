@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 {% block title%}
-Home
+Support
 {% endblock %}
 
 {% block content %}
@@ -16,7 +16,7 @@ Home
 							<h1 class="text-white">
 								Support				
 							</h1>	
-							<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="service.html"> Support</a></p>
+							<p class="text-white link-nav"><a href="{%url 'index' %}">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="#"> Support</a></p>
 						</div>	
 					</div>
 				</div>
@@ -68,15 +68,15 @@ Home
 
 				  <div class="form-group">
 					 <label style="font-weight: 600; font-size: 20px;">First Name <span style="color: red;">*</span></label>
-					 {{ form.pst_firstname }}
+					 {{ support_form.pst_firstname }}
 				  </div>
 				  <div class="form-group">
 					 <label style="font-weight: 600; font-size: 20px;">Last Name  <span style="color: red;">*</span></label>
-					 {{ form.pst_lastname }}
+					 {{ support_form.pst_lastname }}
 				  </div>
 				  <label style="font-weight: 600; font-size: 20px;">Trip Date <span style="color: red;">*</span>: </label>
 				  <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-					{{ form.date }}
+					{{ support_form.date }}
 					<div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
 					  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
 					</div>
@@ -87,7 +87,7 @@ Home
 						<span class="input-group-addon">
 						  
 						</span>
-						{{ form.phone }}
+						{{ support_form.phone }}
 					 </div>
 				  </div>
 				 
@@ -97,7 +97,7 @@ Home
 					   <span class="input-group-addon">
 						 
 					   </span>
-					   {{ form.pickoff }}
+					   {{ support_form.pickoff }}
 					</div>
 				 </div>
 				 <div class="form-group">
@@ -106,13 +106,13 @@ Home
 					   <span class="input-group-addon">
 						 
 					   </span>
-					   {{ form.dropoff }}
+					   {{ support_form.dropoff }}
 					</div>
 				 </div>
 				 <div class="form-group">
 					<label style="font-weight: 600; font-size: 20px;">Dropoff Time <span style="color: red;">*</span>: </label>
 					<div class="input-group date" id="datetimepicker2" data-target-input="nearest">
-						{{ form.drop_time }}
+						{{ support_form.drop_time }}
 						<div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
 						  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
 						</div>
@@ -124,7 +124,7 @@ Home
 					   <span class="input-group-addon">
 						 
 					   </span>
-					   {{ form.bus_no }}
+					   {{ support_form.bus_no }}
 					</div>
 				 </div>
 				  

@@ -1,0 +1,106 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title%}
+Home
+{% endblock %}
+
+{% block content %}
+<section class="home-about-area section-gap ">
+	<div class="container mx-auto">
+		{% if single %}
+		
+		<img  src="{{ single.blog_img }}" class="img-fluid" alt="">
+		
+		{% endif %}
+	</div>	
+	<br>
+	<div class="ml-50 col-lg-10">
+		<h1>Job Vacancy</h1>
+	Leave a Comment / Career / By Transtura
+
+	</div>
+</section>
+
+<section class="home-about-area ">
+	<div class="container mx-auto">
+		{% if single %}
+		
+		<img  src="{{ single.blog_img1 }}" class="img-fluid" alt="">
+		
+		{% endif %}
+	</div>	
+	<br>
+	<div class="ml-50 col-lg-10">
+		<p>
+			{{ single.content1 }}
+		</p>
+
+	</div>
+</section>
+	
+<section class="home-about-area">
+	<div class="container mx-auto">
+		{% if single %}
+		
+		<img  src="{{ single.blog_img2 }}" class="img-fluid" alt="">
+		
+		{% endif %}
+	</div>	
+	<br>
+	<div class="ml-50 col-lg-10">
+		<p>
+			{{ single.content2 }}
+		</p>
+
+	</div>
+</section>	
+		
+<section class="home-about-area section-gap ">
+	{% if single %}
+                        <div class="single-box" id="add_comment">
+                            
+                          
+                            <form method="POST" action="" class="mx-auto col-lg-10">
+								<h2 >Leave a Comment</h2>
+								<p>
+									Your email address will not be published. Required fields are marked *
+								</p>
+									{% if messages %}
+									{% for m in messages%}
+										<div style="font-size: 18px; font-weight: 500;" class="alert {{ m.tags }} text-center">{{ m }}</div>
+									{% endfor %}
+									{% endif %}
+								
+                                <div class="row">
+									<div class="col-sm-12">
+                                        <label for="message">Message</label>
+                                        {{form.body}}
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label for="name">Name</label>
+                                       {{form.name}}
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label for="email">Email</label>
+                                        {{form.email}}
+                                    </div>
+									<div class="col-sm-4">
+                                        <label for="website">Website</label>
+                                        {{form.website}}
+                                    </div>
+                                    <!-- <div class="col-sm-12">
+                                        <label for="website"></label>
+                                        <input id="website" type="text" class="form-control">
+                                    </div> -->
+                                    
+                                </div>
+								<br>
+                                <button type="submit" class="text-uppercase btn btn-outline-warning btn-lg mx-auto">Submit</button>
+                                {% csrf_token %}
+                            </form>
+                        </div>
+                        {% endif %}
+</section>
+{% endblock %}

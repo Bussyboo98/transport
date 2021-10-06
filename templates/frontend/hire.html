@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 {% block title%}
-Home
+Hire a Bus
 {% endblock %}
 
 {% block content %}
@@ -16,7 +16,7 @@ Home
 							<h1 class="text-white">
 								Hire a Bus				
 							</h1>	
-							<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="service.html"> Services</a></p>
+							<p class="text-white link-nav"><a href="{%url 'index' %}">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="#">Hire a Bus</a></p>
 						</div>	
 					</div>
 				</div>
@@ -106,11 +106,31 @@ Home
 					   {{ hire_form.passng }}
 					</div>
 				 </div>
+				 <label style="font-weight: 600; font-size: 20px;"> Date/Time <span style="color: red;">*</span>: </label>
+				 <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+				   {{ hire_form.da_ti }}
+				   <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+					 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+				   </div>
+				 </div>
 				 
 				
 				  <button type="submit" class="text-uppercase btn btn-outline-warning btn-lg mx-auto">Submit</button>
 			   </form>
 			   <br><br>
+
+			   <script>
+				$(function () {
+				  $("#datetimepicker1").datetimepicker({
+					format: 'DD/MM/YYYY HH:mm',
+				  });
+				  $("#datetimepicker2").datetimepicker({
+					format: 'DD/MM/YYYY HH:mm',
+				  });
+				});
+			  </script>
+			
+
 			<!-- End home-about Area -->												
 				    																			
 	{% endblock %}

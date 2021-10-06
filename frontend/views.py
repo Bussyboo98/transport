@@ -52,14 +52,14 @@ def service(request):
 
 def support(request):
     support = Support2.objects.all()
-
-    form = SupportForm()
+    
+    support_form = SupportForm()
     if request.method == 'POST':
-        form = SupportForm(request.POST)
-        if form.is_valid():
-            form = form.save()
+        support_form = SupportForm(request.POST)
+        if support_form.is_valid():
+            support_form = support_form.save()
             messages.success(request, 'Ynks for choosing Transtura')
-    return render(request, 'frontend/support.html', {'form': form, 'support' : support})
+    return render(request, 'frontend/support.html', {'support_form':support_form, 'support' : support})
 
 
 
@@ -69,8 +69,46 @@ def hire(request):
         hire_form = HireForm(request.POST)
         if hire_form.is_valid():
             hire_form = hire_form.save()
-            messages.success(request, 'User edited successfully.')
+            messages.success(request, 'You have requested for a Bus.Our Team Will Reach Out To You Within The Next 3hrs')
     return render(request, 'frontend/hire.html',{'hire_form':hire_form})
 
-def contact(request):
-    return render(request, 'frontend/contact.html')
+def career(request):
+    car = Career.objects.all()
+    return render(request, 'frontend/career.html', {'car' : car})
+
+def blog(request):
+    blog=Blog.objects.order_by('-created')
+    return render(request, 'frontend/blog-home.html',{'blog':blog})
+
+def blog_details(request, slug):
+    single_post = get_object_or_404(Blog,  slug=slug)
+   
+    
+    
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False) 
+            comment.post = single_post
+            comment.save()
+            messages.success(request, 'Thanks For Your Comment')
+            return redirect('frontend:blog_details', slug=single_post.slug)
+    else:
+        form = CommentForm()     
+
+    return render(request, 'frontend/blog-details.html',{
+        
+        'form':form,
+        'single':single_post, 
+    
+      
+        })
+
+def privacy(request):
+    privacy=Privacy.objects.all()
+    return render(request, 'frontend/privacy.html',{'privacy':privacy})
+
+def terms(request):
+    terms=Privacy.objects.all()
+    return render(request, 'frontend/terms.html',{'terms':terms})
+

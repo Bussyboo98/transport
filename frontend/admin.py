@@ -69,8 +69,12 @@ class SupportAdmin(admin.ModelAdmin):
 
        'pst_firstname',
        'pst_lastname',
+       'phone',
+       'pickoff',
+       'dropoff',
+       'bus_no'
        
-       'created',
+      
         ]
 
 @admin.register(Support2)
@@ -90,3 +94,52 @@ class HireAdmin(admin.ModelAdmin):
        'to_where',
        'phone'
         ]
+
+
+@admin.register(Blog)
+class BlogAdmin(admin.ModelAdmin):
+    def blog_img(self, obj):
+        return format_html('<img src="{}" width="100" />'.format(obj.blg_image.url))
+
+    blog_img.short_description = 'Blog'
+
+    list_display = [
+
+        'blg_title',
+        'blog_img',
+        'created'
+        ]
+   
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('name', 'body',  'created_on', 'active')
+    list_filter = ('active', 'created_on')
+    search_fields = ('name', 'email', 'body')
+    actions = ['approve_comments']
+
+    def approve_comments(self, request, queryset):
+        queryset.update(active=True)
+
+@admin.register(Career)
+class CareerAdmin(admin.ModelAdmin):
+    def car_img(self, obj):
+        return format_html('<img src="{}" width="100" />'.format(obj.car_image.url))
+
+    car_img.short_description = 'Career'
+
+    list_display = [
+        'car_img',
+        'created'
+        ]
+
+@admin.register(Privacy)
+class PrivacyAdmin(admin.ModelAdmin):
+    list_display = [
+
+       'title',
+       
+       
+      
+        ]
+
+   
