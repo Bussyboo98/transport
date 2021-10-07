@@ -26,6 +26,20 @@ class FourApp(models.Model):
           return self.app_img.url
 
 
+class Drive(models.Model):
+    title = models.CharField(max_length=100)
+    content = HTMLField('Content')
+   
+
+
+    def __str__(self):
+        return self.title
+
+    class Meta():
+        verbose_name_plural = 'What Drive Us'
+
+  
+
 
 class Team(models.Model):
     name = models.CharField(max_length=100, verbose_name="Founder Nmae")

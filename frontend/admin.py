@@ -137,6 +137,15 @@ class PrivacyAdmin(admin.ModelAdmin):
     list_display = [
 
        'title',
+
+      
+        ]
+
+@admin.register(Drive)
+class DriveAdmin(admin.ModelAdmin):
+    list_display = [
+
+       'title',
        
        
       

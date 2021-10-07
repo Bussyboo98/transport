@@ -133,27 +133,17 @@ Home
 						
 					</div>
 					<div class="row">
+						{% if drive %}
+						{% for d in drive %}
 						<div class="col-lg-4 single-service">
-							<span class="lnr lnr-car"></span>
-							<a href="#"><h4>Taxi Service</h4></a>
+							<img src="../../static/frontend/img/Transture_mockup_bus-removebg-preview.png" class="img-fluid col-4" alt="">
+							<a href="#"><h4>{{ d.title }}</h4></a>
 							<p>
-								Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+								{{ d.content | safe }}
 							</p>
 						</div>
-						<div class="col-lg-4 single-service">
-							<span class="lnr lnr-briefcase"></span>
-							<a href="#"><h4>Office Pick-ups</h4></a>
-							<p>
-								Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-							</p>
-						</div>
-						<div class="col-lg-4 single-service">
-							<span class="lnr lnr-bus"></span>
-							<a href="#"><h4>Event Transportation</h4></a>
-							<p>
-								Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-							</p>
-						</div>												
+						{% endfor %}		
+						{% endif %}									
 					</div>	
 				</div>	
 			</section>

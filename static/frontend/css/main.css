@@ -2740,14 +2740,18 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .services-area .single-service:hover {
-  background-color: #000000;
+  background-color: #ffe600;
   pointer: cursor;
 }
 
 .services-area .single-service:hover h4,
 .services-area .single-service:hover .lnr {
-  color: #f9d700;
+  color: #ffffff;
 }
+
+
+
+
 
 @media (max-width: 991px) {
   .services-area .single-service {

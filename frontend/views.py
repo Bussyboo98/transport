@@ -32,6 +32,8 @@ class Home(TemplateView):
         context = super().get_context_data(**kwargs)
 
         context['four'] = FourApp.objects.all()
+        context['drive'] = Drive.objects.all()
+        
        
         return context
        

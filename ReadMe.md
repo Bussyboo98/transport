@@ -22,9 +22,9 @@ def hire(request):
     hire_form = HireForm()
     if request.method == 'POST':
         hire_form = HireForm(request.POST)
-        if hire_form.is_valid():
-            hire_form = hire_form.save()
-            messages.success(request, 'You have requested for a Bus.Our Team Will Reach Out To You Within The Next 3hrs')
+        if hire_form.is_valid(): - this check if the form is valid i.e no form was left unfilled or email has @gmail.com etc
+            hire_form = hire_form.save()- once its valid it saves in your database
+            messages.success(request, 'You have requested for a Bus.Our Team Will Reach Out To You Within The Next 3hrs')- Tis ahows the alert message
     return render(request, 'frontend/hire.html',{'hire_form':hire_form})
 
 
