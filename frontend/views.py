@@ -32,7 +32,7 @@ class Home(TemplateView):
         context = super().get_context_data(**kwargs)
 
         context['four'] = FourApp.objects.all()
-        context['drive'] = Drive.objects.all()
+        
         
        
         return context
@@ -79,13 +79,29 @@ def career(request):
     return render(request, 'frontend/career.html', {'car' : car})
 
 def blog(request):
-    blog=Blog.objects.order_by('-created')
-    return render(request, 'frontend/blog-home.html',{'blog':blog})
+    blog_post =  Blog.objects.order_by('-created')
+    count_post = Blog.objects.filter().count()    
+    most_recent = Blog.objects.order_by('created')[:4]
+    paginated_filter = Paginator(blog_post, 6)
+    page_number = request.GET.get('page')
+    comments = Comment.objects.filter()
+    person_page_obj = paginated_filter.get_page(page_number)
 
-def blog_details(request, slug):
-    single_post = get_object_or_404(Blog,  slug=slug)
-   
+    context = {
+        'person_page_obj': blog_post, 
+        'most_recent': most_recent,
+        'counts': count_post,
+        'comm':comments
+    }
+    context['person_page_obj'] = person_page_obj  
     
+
+    return render(request, 'frontend/blog-home.html', context)
+
+def blog_details(request,pk):
+    single_post = get_object_or_404(Blog,pk=pk)
+    comments = Comment.objects.filter(post=pk).order_by('-created_on')
+    most_recent = Blog.objects.order_by('created')[:4]
     
     if request.method == "POST":
         form = CommentForm(request.POST)
@@ -93,18 +109,38 @@ def blog_details(request, slug):
             comment = form.save(commit=False) 
             comment.post = single_post
             comment.save()
-            messages.success(request, 'Thanks For Your Comment')
-            return redirect('frontend:blog_details', slug=single_post.slug)
+           
+            return redirect('frontend:blog_details',pk=single_post.pk)
     else:
         form = CommentForm()     
 
     return render(request, 'frontend/blog-details.html',{
         
         'form':form,
-        'single':single_post, 
+        'sipst':single_post, 
+        'comm': comments,
+        'most_recent':most_recent
     
       
         })
+
+def search(request):
+    queryset = Blog.objects.all()
+    query = request.GET.get('q')
+    most_recent = Blog.objects.order_by('created')[:6]
+    if query:
+        queryset = queryset.filter(
+            Q(title__icontains=query) |
+            Q(content__icontains=query)
+        ).distinct()
+    context = {
+        'queryset': queryset,
+        'most_recent':most_recent
+    
+        
+    }
+    return render(request, 'frontend/search_results.html', context)
+
 
 def privacy(request):
     privacy=Privacy.objects.all()

@@ -26,6 +26,7 @@ urlpatterns = [
     path('pages/', include('frontend.urls')),
     path('tinymce/', include('tinymce.urls')),
     path('admin/filebrowser/', site.urls),
+    path('search/', views.search, name='search'),
     path('admin/', admin.site.urls),
 
 ]

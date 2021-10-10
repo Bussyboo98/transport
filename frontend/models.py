@@ -1,12 +1,16 @@
 
 from django.db import models
 from django.db.models import Q
+from django.db.models.fields.files import ImageField
 from django.utils import timezone
 from django.conf import settings
 from django.urls import reverse
 from django.contrib.auth.models import User
 from tinymce import HTMLField
 from django.utils.html import format_html
+from fontawesome_5.fields import IconField
+import datetime
+
 
 
 class FourApp(models.Model):
@@ -26,17 +30,6 @@ class FourApp(models.Model):
           return self.app_img.url
 
 
-class Drive(models.Model):
-    title = models.CharField(max_length=100)
-    content = HTMLField('Content')
-   
-
-
-    def __str__(self):
-        return self.title
-
-    class Meta():
-        verbose_name_plural = 'What Drive Us'
 
   
 
@@ -67,7 +60,7 @@ class About(models.Model):
     content1 = models.TextField(max_length=300)
     vision= models.CharField(max_length=100, verbose_name="Vision Title")
     content2 = models.TextField(max_length=300)
-    what_is_drivig_content=HTMLField('What is Driving Us Content')
+   
     created = models.DateTimeField(auto_now_add=True, help_text='This will automatically add a time when you click save')
     modified = models.DateTimeField(auto_now=True)
   
@@ -157,21 +150,25 @@ class Hire(models.Model):
     class Meta():
         verbose_name_plural = 'Hire'
 
+
 class Blog(models.Model):
-    blg_title = models.CharField(max_length=150, verbose_name= 'Blog Title')
+    title = models.CharField(max_length=150, verbose_name='Post Title')
+    slug = models.SlugField(unique=True)
     blg_image = models.ImageField(null=True, verbose_name='Blog Image', blank=True, upload_to='uploads/')
     content = HTMLField('Content')
     blg_image1 = models.ImageField(null=True, verbose_name='Blog Image1', blank=True, upload_to='uploads/')
-    content1 = models.TextField(max_length=300)
     blg_image2 = models.ImageField(null=True, verbose_name='Blog Image2', blank=True, upload_to='uploads/')
-    content2 = models.TextField(max_length=300)
-    slug = models.SlugField(unique=True)
+    
+    user = models.CharField(max_length=100, verbose_name="Posted By")
     created = models.DateTimeField(auto_now_add=True, help_text='This will automatically add a time when you click save')
     modified = models.DateTimeField(auto_now=True)
-   
-   
+    time = models.DateTimeField(auto_now_add=True)
+    today = datetime.date.today()
+    months = ['zero','January','February','March','April','May','June','July','August','September','October','November','December']
+    current_month = months[today.month]
+
     def __str__(self):
-        return self.blg_title
+        return self.title
 
     class Meta():
         verbose_name_plural = 'Blog'
@@ -192,16 +189,19 @@ class Blog(models.Model):
     def get_comments(self):
         return self.comments.all()
 
-
     def get_post_url(self):
         return reverse('frontend:blog_details', kwargs={
-            'slug': self.slug,  })
+            'slug': self.slug,
+        })
+
 
 class Comment(models.Model):
     name = models.CharField(max_length=80,verbose_name= 'Name')
     email = models.EmailField()
     website = models.CharField(max_length=100)
-    body = models.TextField()
+    body = HTMLField('Content')
+    post = models.ForeignKey(Blog, related_name='comments', on_delete=models.CASCADE)
+
     created_on = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=False)
 

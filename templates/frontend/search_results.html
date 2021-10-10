@@ -1,0 +1,92 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title%}
+Search Results
+{% endblock %}
+
+{% block content %}
+	
+
+
+		
+
+			<!-- Start top-category-widget Area -->
+		
+			<!-- Start post-content Area -->
+			<section class="post-content-area section-gap">
+				<div class="container">
+					<div class="row">
+						
+						<div class="col-lg-8 posts-list">
+                            {% for t in queryset %}
+							<div class="single-post row">
+							
+								<div class="col-lg-3  col-md-3 meta-details">
+									
+									<div class="user-details row">
+										<p class="user-name col-lg-12 col-md-12 col-6"><a href="#">{{ t.user }}</a> <span class="lnr lnr-user"></span></p>
+										<p class="date col-lg-12 col-md-12 col-6"><a href="#">{{t.time.day}} {{t.current_month}}, {{t.time.year}}</a> <span class="lnr lnr-calendar-full"></span></p>
+										
+										
+									</div>
+								</div>
+								<div class="col-lg-9 col-md-9 ">
+									<div class="feature-img">
+										<img class="img-fluid" src="{{t.blog_img}}" alt="">
+									</div>
+									<a class="posts-title" href="{%url 'frontend:blog_details' t.id %}"><h3>{{t.title}}</h3></a>
+									<p class="excert">
+										{{ t.content | safe | truncatewords:30 }}
+									</p>
+									<a href="{%url 'frontend:blog_details' t.id %}" class="primary-btn">View More</a>
+								</div>
+							</div>
+							{% endfor %}	
+															
+		                   
+						</div>
+						<div class="col-lg-4 sidebar-widgets" >
+							<div class="widget-wrap" style="background-color: black; color: white;">
+								<div class="single-sidebar-widget search-widget">
+									<form class="search-form" action="{% url 'search' %}">
+			                            <input placeholder="Search Posts" name="q" id="search" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Posts'" >
+			                            <button type="submit" id="submit"><i class="fa fa-search"></i></button>
+			                        </form>
+								</div>
+								<div class="single-sidebar-widget user-info-widget" >
+									<img src="../../static/frontend/img/cropped-Logo_all-whiteYellow--145x24.png" alt="">
+									<a href="#" ><h4>Transtura</h4></a>
+									
+									<p>
+										Transtura is a public transportation management company that provides comfortable, convenient, reliable, safe, and affordable on demand bus ride sharing service. 
+									</p>
+								</div>
+								<div class="single-sidebar-widget popular-post-widget">
+									<h4 class="popular-title">Recent Posts</h4>
+									<div class="popular-post-list">
+										{% for m in most_recent %}
+										<div class="single-post-list d-flex flex-row align-items-center">
+											<div class="thumb">
+												<img class="img-fluid" src="{{m.blog_img}}" style="min-height: 100px; max-height: 100px; max-width: 100px; min-width:100px;" alt="">
+											</div>
+											<div class="details">
+												<a href="{%url 'frontend:blog_details' m.id %}"><h6>{{m.title}}</h6></a>
+												<p>{{m.created}}</p>
+											</div>
+										</div>
+										{% endfor %}
+																							
+									</div>
+								</div>								
+							</div>
+						</div>
+					</div>
+				</div>	
+			</section>
+			<!-- End post-content Area -->
+			
+			<!-- start footer Area -->		
+			
+{% endblock %}

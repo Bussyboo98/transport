@@ -3,104 +3,168 @@
 <!DOCTYPE html>
 
 {% block title%}
-Home
+{{ sipst.title }}
 {% endblock %}
 
 {% block content %}
-<section class="home-about-area section-gap ">
-	<div class="container mx-auto">
-		{% if single %}
-		
-		<img  src="{{ single.blog_img }}" class="img-fluid" alt="">
-		
-		{% endif %}
-	</div>	
-	<br>
-	<div class="ml-50 col-lg-10">
-		<h1>Job Vacancy</h1>
-	Leave a Comment / Career / By Transtura
-
-	</div>
-</section>
-
-<section class="home-about-area ">
-	<div class="container mx-auto">
-		{% if single %}
-		
-		<img  src="{{ single.blog_img1 }}" class="img-fluid" alt="">
-		
-		{% endif %}
-	</div>	
-	<br>
-	<div class="ml-50 col-lg-10">
-		<p>
-			{{ single.content1 }}
-		</p>
-
-	</div>
-</section>
-	
-<section class="home-about-area">
-	<div class="container mx-auto">
-		{% if single %}
-		
-		<img  src="{{ single.blog_img2 }}" class="img-fluid" alt="">
-		
-		{% endif %}
-	</div>	
-	<br>
-	<div class="ml-50 col-lg-10">
-		<p>
-			{{ single.content2 }}
-		</p>
-
-	</div>
-</section>	
-		
-<section class="home-about-area section-gap ">
-	{% if single %}
-                        <div class="single-box" id="add_comment">
-                            
-                          
-                            <form method="POST" action="" class="mx-auto col-lg-10">
-								<h2 >Leave a Comment</h2>
-								<p>
-									Your email address will not be published. Required fields are marked *
-								</p>
-									{% if messages %}
-									{% for m in messages%}
-										<div style="font-size: 18px; font-weight: 500;" class="alert {{ m.tags }} text-center">{{ m }}</div>
-									{% endfor %}
-									{% endif %}
+			<!-- Start post-content Area -->
+			<section class="post-content-area single-post-area">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8 posts-list">
+							{% if sipst %}
+							<div class="single-post row">
+								<div class="col-lg-12">
+									<div class="feature-img">
+										<img class="img-fluid" src="{{ sipst.blog_img}}" style="" alt="">
+									</div>									
+								</div>
+								<div class="col-lg-3  col-md-3 meta-details">
+									
+									<div class="user-details row">
+										<p class="user-name col-lg-12 col-md-12 col-6"><a href="#">{{ sipst.user }}</a> <span class="lnr lnr-user"></span></p>
+										<p class="date col-lg-12 col-md-12 col-6"><a href="#">{{ sipst.created }}</a> <span class="lnr lnr-calendar-full"></span></p>
+										<!-- <p class="view col-lg-12 col-md-12 col-6"><a href="#">1.2M Views</a> <span class="lnr lnr-eye"></span></p> -->
+										<p class="comments col-lg-12 col-md-12 col-6"><a href="#">
+											{{ comm.count }} comments</a> <span class="lnr lnr-bubble"></span></p>
+										<ul class="social-links col-lg-12 col-md-12 col-6">
+											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+											<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+											<li><a href="#"><i class="fa fa-github"></i></a></li>
+											<li><a href="#"><i class="fa fa-behance"></i></a></li>
+										</ul>																				
+									</div>
+								</div>
+								<div class="col-lg-9 col-md-9">
+									<h3>{{ sipst.title }}</h3>
+									<p class="excert">
+										{{sipst.content | safe}}
+									</p>
+									
+								</div>
+								<div class="col-lg-12">
+									
+									<div class="row mt-30 mb-30">
+										<div class="col-6">
+											<img class="img-fluid" src="{{ sipst.blog_img1 }}" alt="">
+										</div>
+										<div class="col-6">
+											<img class="img-fluid" src="{{ sipst.blog_img2}}" alt="">
+										</div>	
+																		
+									</div>
+								</div>
 								
-                                <div class="row">
-									<div class="col-sm-12">
-                                        <label for="message">Message</label>
-                                        {{form.body}}
+							</div>
+							{% endif %}
+						
+							<div class="comments-area">
+								<h4> {{ comm.count }} Comments</h4>
+									{% if not comm %}
+									<h4>No Comments yet....<a href="#add_comment"> Be the first to add</a></h4>
+									{% else %}
+									{% for comment in comm %}
+								<div class="comment-list">
+                                    <div class="single-comment justify-content-between d-flex">
+                                        <div class="user justify-content-between d-flex">
+                                            <div class="thumb">
+                                                <img src="../../static/frontend/img/avatar.jpg"  alt="">
+                                            </div>
+                                            <div class="desc">
+                                                <h5>{{ comment.name }}</h5>
+                                                <p class="date">{{ comment.created_on }} </p>
+                                                <p class="comment">
+													{{ comment.body | linebreaks }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        
                                     </div>
-                                    <div class="col-sm-4">
-                                        <label for="name">Name</label>
-                                       {{form.name}}
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <label for="email">Email</label>
-                                        {{form.email}}
-                                    </div>
-									<div class="col-sm-4">
-                                        <label for="website">Website</label>
-                                        {{form.website}}
-                                    </div>
-                                    <!-- <div class="col-sm-12">
-                                        <label for="website"></label>
-                                        <input id="website" type="text" class="form-control">
-                                    </div> -->
-                                    
-                                </div>
-								<br>
-                                <button type="submit" class="text-uppercase btn btn-outline-warning btn-lg mx-auto">Submit</button>
-                                {% csrf_token %}
-                            </form>
-                        </div>
-                        {% endif %}
-</section>
+                                </div>	
+								{% endfor %}
+								{% endif %}	                                             				
+							</div>
+							<section class="home-about-area section-gap ">
+								{% if sipst %}
+								<div class="single-box" id="add_comment">
+									
+									
+									<form method="POST" action="" class="mx-auto col-lg-10">
+										<h2 >Leave a Comment</h2>
+										<p>
+											Your email address will not be published. Required fields are marked *
+										</p>
+											
+										<div class="row">
+											<div class="col-sm-12">
+												<label for="message">Message</label>
+												{{form.body}}
+											</div>
+											<div class="col-sm-4">
+												<label for="name">Name</label>
+												{{form.name}}
+											</div>
+											<div class="col-sm-4">
+												<label for="email">Email</label>
+												{{form.email}}
+											</div>
+											<div class="col-sm-4">
+												<label for="website">Website</label>
+												{{form.website}}
+											</div>
+											<!-- <div class="col-sm-12">
+												<label for="website"></label>
+												<input id="website" type="text" class="form-control">
+											</div> -->
+											
+										</div>
+										<br>
+										<button type="submit" class="text-uppercase btn btn-outline-warning btn-lg mx-auto">Submit</button>
+										{% csrf_token %}
+									</form>
+								</div>
+								{% endif %}
+							</section>
+						</div>
+						<div class="col-lg-4 sidebar-widgets" >
+							<div class="widget-wrap" style="background-color: black; color: white;">
+								<div class="single-sidebar-widget search-widget">
+									<form class="search-form" action="{% url 'search' %}">
+			                            <input placeholder="Search Posts" name="q" id="search" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Posts'" >
+			                            <button type="submit" id="submit"><i class="fa fa-search"></i></button>
+			                        </form>
+								</div>
+								<div class="single-sidebar-widget user-info-widget" >
+									<img src="../../static/frontend/img/cropped-Logo_all-whiteYellow--145x24.png" alt="">
+									<a href="#" ><h4>Transtura</h4></a>
+									
+									<p>
+										Transtura is a public transportation management company that provides comfortable, convenient, reliable, safe, and affordable on demand bus ride sharing service. 
+									</p>
+								</div>
+								<div class="single-sidebar-widget popular-post-widget">
+									<h4 class="popular-title">Recent Posts</h4>
+									<div class="popular-post-list">
+										{% for m in most_recent %}
+										<div class="single-post-list d-flex flex-row align-items-center">
+											<div class="thumb">
+												<img class="img-fluid" src="{{m.blog_img}}" style="min-height: 100px; max-height: 100px;" alt="">
+											</div>
+											<div class="details">
+												<a href=""><h6>{{m.title}}</h6></a>
+												<p>{{m.created}}</p>
+											</div>
+										</div>
+										{% endfor %}
+																							
+									</div>
+								</div>								
+							</div>
+						</div>
+					</div>
+					
+				</div>	
+			</section>
+			<!-- End post-content Area -->
+			
 {% endblock %}

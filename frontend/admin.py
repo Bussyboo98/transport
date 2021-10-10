@@ -98,6 +98,7 @@ class HireAdmin(admin.ModelAdmin):
 
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('title',)}
     def blog_img(self, obj):
         return format_html('<img src="{}" width="100" />'.format(obj.blg_image.url))
 
@@ -105,14 +106,16 @@ class BlogAdmin(admin.ModelAdmin):
 
     list_display = [
 
-        'blg_title',
+        'title',
         'blog_img',
-        'created'
+        'created',
+        'user',
         ]
+   
    
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('name', 'body',  'created_on', 'active')
+    list_display = ('name', 'body', 'post',  'created_on', 'active')
     list_filter = ('active', 'created_on')
     search_fields = ('name', 'email', 'body')
     actions = ['approve_comments']
@@ -141,14 +144,3 @@ class PrivacyAdmin(admin.ModelAdmin):
       
         ]
 
-@admin.register(Drive)
-class DriveAdmin(admin.ModelAdmin):
-    list_display = [
-
-       'title',
-       
-       
-      
-        ]
-
-   
