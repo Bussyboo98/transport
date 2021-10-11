@@ -6,7 +6,7 @@
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
-		<link rel="shortcut icon" href="../../static/frontend/img/Transture_mockup_bus-removebg-preview.png">
+		<link rel="shortcut icon" href="../../static/frontend/img/fg.png">
 		<!-- Author Meta -->
 		<meta name="author" content="colorlib">
 		<!-- Meta Description -->
@@ -36,7 +36,7 @@
 			<link rel="stylesheet" href="{% static 'frontend/css/animate.min.css' %}">
 			<link rel="stylesheet" href="{% static 'frontend/css/jquery-ui.css' %}">			
 			<link rel="stylesheet" href="{% static 'frontend/css/main.css' %}">
-			<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+			<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
@@ -71,7 +71,7 @@
 							</li>
 							 						  			          	          
 							  <li><a href="{%url 'frontend:career' %}">Career</a></li>
-							  <li> <button class="btn btn-warning " style="padding: 3%;">
+							  <li> <button class="btn btn-warning " style="padding: 3%; background-color: #f9d700;;">
 								<a href="" >Download App</a>
 							  </button>
 							 
@@ -87,10 +87,10 @@
 			  {% endblock%}
 			
 			<!-- start footer Area -->		
-			<footer class="footer-area" style="background-color: rgb(19, 19, 19); padding-top: 5%; padding-bottom: 5%;">
+			<footer class="footer-area text-center" style="background-color: rgb(19, 19, 19); padding-top: 5%; padding-bottom: 5%;">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-4 col-md-6 col-sm-6">
+						<div class="col-lg-3 col-md-6 col-sm-6">
 							<div class="single-footer-widget">
 								<img src="../../static/frontend/img/cropped-Logo_all-whiteYellow--145x24.png" class="img-fluid" alt="">
 								
@@ -106,7 +106,7 @@
 						
 						<div class="col-lg-2 col-md-6 col-sm-6">
 							<div class="single-footer-widget">
-								<h6>Who We Are</h6>
+								<h6 style="color:  #f9d700;;">Who We Are</h6>
 								<ul>
 									<li><a href="{%url 'frontend:about' %}">About</a></li>
 									<li><a href="{%url 'frontend:service' %}">Drive With Us</a></li>
@@ -116,7 +116,7 @@
 						</div>	
 						<div class="col-lg-2 col-md-6 col-sm-6">
 							<div class="single-footer-widget">
-								<h6>Company</h6>
+								<h6 style="color:  #f9d700;;">Company</h6>
 								<ul>
 									<li><a href="#">FAQs</a></li>
 									<li><a href="{%url 'frontend:support' %}">Support</a></li>
@@ -125,21 +125,21 @@
 								</ul>								
 							</div>
 						</div>												
-						<div class="col-lg-2 col-md-6 col-sm-6 social-widget">
+						<div class="col-lg-2 col-md-6 col-sm-6 social-widget" >
 							<div class="single-footer-widget">
-								<h6>Follow Us</h6>
+								<h6 style="color:  #f9d700;;">Follow Us</h6>
 								
-								<div class="footer-social d-flex align-items-center">
-									<a href="#"><i class="fa fa-facebook"></i></a>
+								<div class="footer-social d-flex align-items-center" style="margin-left: 30%;">
+									<a href="#"><i class="fa fa-facebook" ></i></a>
 									<a href="#"><i class="fa fa-twitter"></i></a>
 									<a href="#"><i class="fa fa-dribbble"></i></a>
 									<a href="#"><i class="fa fa-behance"></i></a>
 								</div>
 							</div>
 						</div>							
-						<div class="col-lg-2 col-md-6 col-sm-6">
+						<div class="col-lg-3 col-md-12 col-sm-6">
 							<div class="single-footer-widget">
-								<h6>Company</h6>
+								<h6 style="color:  #f9d700;;">Legal</h6>
 								<ul>
 									<li><a href="{%url 'frontend:privacy' %}">Privacy Policy</a></li>
 									<li class="menu-has-children"><a href="{%url 'frontend:terms' %}">Terms & Conditions</a>

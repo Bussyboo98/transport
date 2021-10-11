@@ -15,8 +15,8 @@ About Us
 				<div class="container">
 					<div class="overlay overlay-bg"></div>
 					<div class="row align-items-center section-gap">
-						<div class="col-lg-8">
-							<h1 style="font-size: 50px;">Join Us To Keep <br> Changing The Narrative</h1>
+						<div class="col-lg-7 ml-30">
+							<h1 style="font-family: 'Montserrat', sans-serif;">Join Us To Keep <br> Changing The Narrative</h1>
 							
 						</div>
 						<div class="col-lg-4 btn-left">
@@ -60,8 +60,8 @@ About Us
 						{% for m in abt %}
 						<div class="col-lg-6 col-md-6">
 							<div class="single-review1">
-								<h4>{{m.vision}}</h4>
-								<p>
+								<h4 style=" font-family: 'Montserrat', sans-serif;">{{m.vision}}</h4>
+								<p >
 								{{m.content1}}
 								</p>
 								
@@ -69,8 +69,8 @@ About Us
 						</div>	
 						<div class="col-lg-6 col-md-6">
 							<div class="single-review2">
-								<h4>{{m.mission}}</h4>
-								<p>
+								<h4 style=" font-family: 'Montserrat', sans-serif;">{{m.mission}}</h4>
+								<p >
 								{{m.content2}}
 								</p>
 								
@@ -146,14 +146,14 @@ About Us
 								 up the challenge of solving Lagos mobility problem, we would be glad to welcome 
 								 you on onboard!</p>
 						</div>					
-						<div class="row">
+						<div class="row mx-auto">
 							{% if tem %}
 							{% for a in tem %}
-							<div class="col-lg-3 mx-auto">
+							<div class="col-lg-3 mx-auto tet">
 								<div class="img-container">
 									<img class="img-fluid" src="{{ a.team_img }}" alt="">
 								</div>
-								<h3 class="text-center capitalize mt-20">{{ a.name }}</h3>
+								<h3 class="capitalize mt-20">{{ a.name }}</h3>
 								<p class="text-center" style="font-weight: 400;">{{ a.title }}</p>
 							</div>
 							{% endfor %}
@@ -161,6 +161,7 @@ About Us
 						</div>
 					</div>	
 				</section>
+				
 				<!-- End image-gallery Area -->		
 									
 				    																			

@@ -37,7 +37,7 @@ Blog
 									<div class="feature-img">
 										<img class="img-fluid" src="{{b.blog_img}}" alt="">
 									</div>
-									<a class="posts-title" href="{% url 'frontend:blog_details' b.id %}"><h3>{{b.title}}</h3></a>
+									<a class="posts-title" href="{% url 'frontend:blog_details' b.id %}"><h3 style=" font-family: 'Montserrat', sans-serif;">{{b.title}}</h3></a>
 									<p class="excert"></p>
 										{{ b.content|truncatewords:50|safe }}
 									</p>
