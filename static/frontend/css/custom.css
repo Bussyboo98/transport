@@ -13,7 +13,15 @@
     width: auto;
 }
 
-
+.mx .single-review5 a{
+    text-decoration: none;
+    color: #000000;
+    
+    background-color: #f9d700;
+    padding: 13px;
+    border-radius: 30px;
+    font-family: 'Montserrat', sans-serif;
+}
 .tet h3{
     display: block;
     font-family: 'Montserrat', sans-serif;
@@ -261,3 +269,17 @@
     color: black;
     font-weight: 600;
 }
+
+@media (max-width: 921px) {
+    .mx .single-review5 a{
+        color: #000000;
+        margin-left: 25%;
+        background-color: #f9d700;
+        padding: 20px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    
+  }
